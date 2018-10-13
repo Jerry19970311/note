@@ -1,0 +1,103 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://projectlombok.org/edge-releases' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'io.franzbecker.gradle-lombok' version "1.14"
+    id "idea"
+    id "eclipse"
+    id "war"
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+    id "org.springframework.boot" version "2.0.5.RELEASE"
+    id "net.ltgt.apt" version "0.18"
+    id "net.ltgt.apt-idea" version "0.18"
+    id "net.ltgt.apt-eclipse" version "0.18"
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+    id "com.fizzpod.sweeney" version "4.0.0"
+    id "org.asciidoctor.convert" version "1.5.3"
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'https://jitpack.io' }
+}
+
+lombok {
+    version = "1.18.2"
+    sha256 = ""
+}
+sweeney {
+    enforce 'gradle:[4.10,)'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    runtime 'mysql:mysql-connector-java'
+
+//    compile 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
+//    compile 'com.graphql-java:graphiql-spring-boot-starter:5.0.2'
+//    compile 'com.graphql-java:voyager-spring-boot-starter:5.0.2'
+//    compile 'com.graphql-java:graphql-java-tools:5.2.0'
+//    compile 'com.crygier:graphql-jpa:0.6'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-hateoas'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.security:spring-security-acl'
+//    compile 'org.springframework.boot:spring-boot-starter-cache'
+//    compile 'javax.cache:cache-api'
+//    compile 'org.ehcache:ehcache:3.5.2'
+    compileOnly 'org.springframework:springloaded:1.2.8.RELEASE'
+//    compile 'io.swagger.core.v3:swagger-jaxrs2:2.0.0'
+//    compile 'io.swagger.core.v3:swagger-jaxrs2-servlet-initializer:2.0.0'
+//    compile 'javax.xml.bind:jaxb-api:2.3.0'
+//    compile 'io.jsonwebtoken:jjwt-api:0.10.1'
+//    runtime 'io.jsonwebtoken:jjwt-impl:0.10.1'
+//    runtime 'io.jsonwebtoken:jjwt-jackson:0.10.1'
+//    runtime 'org.bouncycastle:bcprov-jdk15on:1.60'
+    compile 'com.querydsl:querydsl-jpa:4.2.1'
+    compile 'com.querydsl:querydsl-sql:4.2.1'
+//    compile 'io.springfox:springfox-data-rest:2.9.2'
+//    compile 'io.springfox:springfox-swagger2:2.9.2'
+    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testCompile 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+
+querydsl {
+    library = "com.querydsl:querydsl-apt:4.2.1"
+    jpa = true
+    querydslDefault = true
+}
+project.afterEvaluate {
+    project.tasks.compileQuerydsl.options.compilerArgs = [
+            "-proc:only",
+            "-processor", project.querydsl.processors() +
+                    ',lombok.launch.AnnotationProcessorHider$AnnotationProcessor'
+    ]
+}
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+sourceSets {
+    querydsl {}
+    main {
+        java.srcDirs += sourceSets.querydsl.java.srcDirs
+    }
+}
