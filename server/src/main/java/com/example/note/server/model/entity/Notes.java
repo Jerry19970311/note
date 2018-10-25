@@ -14,7 +14,9 @@ public class Notes implements Serializable, Cloneable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer noteId;
-    private Date noteDate;
+    private Date createDate;
+    private Date modifyDate;
+    private String title;
     @Column(columnDefinition = "TEXT")
     private String noteContent;
     @ManyToMany

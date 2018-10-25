@@ -6,11 +6,12 @@ import com.example.note.server.model.repository.custom.UserRepositoryCustom;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserRepositoryImpl implements UserRepositoryCustom {
-    @Setter(onMethod = @__(@Autowired))
+    @Setter(onMethod = @__({@Autowired, @Qualifier("mysqlJpaQueryFactory")}))
     private JPAQueryFactory query;
 
     @Override

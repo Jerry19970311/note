@@ -1,12 +1,13 @@
 package com.example.note.server.model.entity;
 
-import com.example.note.server.model.objects.KeyObject;
+import com.example.note.server.model.objects.Gender;
 import com.example.note.server.model.objects.Role;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,12 +22,12 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String userName;
+    private Date createTime;
+    private Gender gender;
     private Role role;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "noteList",
             joinColumns = {@JoinColumn(name = "uid")}
     )
     private List<Notes> notesList;
-    private KeyObject userRSAKey;
-    private KeyObject userAESKey;
 }
