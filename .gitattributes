@@ -1,0 +1,2 @@
+android/src/main/res/font/FangZhengZongYi.ttf filter=lfs diff=lfs merge=lfs -text
+android/src/main/res/font/PingFang-SC-Regular.ttf filter=lfs diff=lfs merge=lfs -text

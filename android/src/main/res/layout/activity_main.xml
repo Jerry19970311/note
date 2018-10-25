@@ -5,21 +5,62 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity" android:id="@+id/LoginPage_-logo">
 
-    <android.support.constraint.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:id="@+id/noteListView" android:scrollbarStyle="insideInset" android:fillViewport="true"
-            android:clipToPadding="true" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" android:layout_marginEnd="375dp" android:layout_marginRight="375dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="502dp" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="1.0">
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:orientation="vertical" android:visibility="visible"
-                      android:id="@+id/noteListViewVertical"
-        />
-    </android.support.constraint.ConstraintLayout>
+    <TextView
+            android:layout_width="180dp"
+            android:layout_height="41dp"
+            android:id="@+id/loginPage_Logo"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="90dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="489dp" android:layout_marginTop="110dp" android:layout_marginStart="90dp"
+            android:text="电子日记本" android:textColor="#009688" android:textSize="36sp" android:typeface="normal"
+            android:fontFamily="@font/FangZhengZongYi"/>
+    <EditText
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/loginPage_username"
+            android:layout_marginTop="220dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="40dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="40dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="380dp"
+            android:fontFamily="@font/PingFang-SC-Regular" android:typeface="normal" android:textColor="#888888"
+            android:textSize="14sp" android:textAlignment="center" android:hint="用户名（邮箱）"/>
+    <EditText
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/loginPage_password" android:layout_marginTop="280dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="320dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="40dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="40dp" android:hint="输入密码" android:fontFamily="@font/PingFang-SC-Regular"
+            android:typeface="normal" android:textSize="14sp"/>
+    <Button
+            android:text="登录"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:id="@+id/loginPage_loginButton" android:layout_marginTop="360dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="250dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="55dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="55dp" android:fontFamily="@font/PingFang-SC-Regular" android:typeface="normal"
+            android:gravity="center" android:textColor="#009699" android:bottomRightRadius="10dp"
+            android:bottomLeftRadius="10dp" android:topLeftRadius="10dp" android:topRightRadius="10dp"
+            android:background="@drawable/button_round"/>
+    <Button
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:id="@+id/loginPage_signUpButton"
+            android:fontFamily="@font/PingFang-SC-Regular" android:layout_marginTop="390dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="40dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="240dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="220dp" android:textSize="12sp" android:background="rgba(255,255,255,0)"
+            android:text="@string/signUp" android:typeface="normal" android:textColor="#009688"
+    />
 </android.support.constraint.ConstraintLayout>
