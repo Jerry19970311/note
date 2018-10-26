@@ -16,7 +16,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="489dp" android:layout_marginTop="110dp" android:layout_marginStart="90dp"
             android:text="电子日记本" android:textColor="#009688" android:textSize="36sp" android:typeface="normal"
-            android:fontFamily="@font/FangZhengZongYi"/>
+            android:fontFamily="@font/fang_zheng_zong_yi"/>
     <EditText
             android:layout_width="280dp"
             android:layout_height="40dp"
@@ -27,7 +27,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="40dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="40dp"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="380dp"
-            android:fontFamily="@font/PingFang-SC-Regular" android:typeface="normal" android:textColor="#888888"
+            android:fontFamily="@font/ping_fang_sc_regular" android:typeface="normal" android:textColor="#888888"
             android:textSize="14sp" android:textAlignment="center" android:hint="用户名（邮箱）"/>
     <EditText
             android:layout_width="280dp"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="320dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="40dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="40dp" android:hint="输入密码" android:fontFamily="@font/PingFang-SC-Regular"
+            android:layout_marginEnd="40dp" android:hint="输入密码" android:fontFamily="@font/ping_fang_sc_regular"
             android:typeface="normal" android:textSize="14sp"/>
     <Button
             android:text="登录"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="250dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="55dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="55dp" android:fontFamily="@font/PingFang-SC-Regular" android:typeface="normal"
+            android:layout_marginEnd="55dp" android:fontFamily="@font/ping_fang_sc_regular" android:typeface="normal"
             android:gravity="center" android:textColor="#009699" android:bottomRightRadius="10dp"
             android:bottomLeftRadius="10dp" android:topLeftRadius="10dp" android:topRightRadius="10dp"
             android:background="@drawable/button_round"/>
@@ -60,7 +60,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="40dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="240dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="220dp" android:textSize="12sp" android:background="rgba(255,255,255,0)"
+            android:layout_marginBottom="220dp" android:textSize="12sp" android:background="#00ffffff"
             android:text="@string/signUp" android:typeface="normal" android:textColor="#009688"
     />
 </android.support.constraint.ConstraintLayout>
